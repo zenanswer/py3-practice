@@ -5,7 +5,7 @@
     py3practice.__main__
     ~~~~~~~~~~~~~~~~~~~~
     Here is empty file.
-    :copyright: © 2018 by CIeNET Technologies.
+    :copyright: © 2018 by zenanswer.
     :license: MIT, see LICENSE for more details.
 """
 

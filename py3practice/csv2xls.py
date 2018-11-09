@@ -6,7 +6,7 @@
     ~~~~~~~~~~~~~~~~~~~
     Load csv file and converting data into a xls file.
 
-    :copyright: © 2018 by CIeNET Technologies.
+    :copyright: © 2018 by zenanswer.
     :license: MIT, see LICENSE for more details.
 """
 

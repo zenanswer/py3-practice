@@ -5,7 +5,7 @@
     py3practice.util.comm
     ~~~~~~~~~~~~~~~~~~~~~
     Here is dummy file for testing importing sub module.
-    :copyright: © 2018 by CIeNET Technologies.
+    :copyright: © 2018 by zenanswer.
     :license: MIT, see LICENSE for more details.
 """
 

@@ -10,7 +10,7 @@ import unittest
 Release package tool for py3practice
 """
 
-__copyright__ = "Copyright 2018, CIeNET Technologies (Beijing) Co., Ltd"
+__copyright__ = "Copyright 2018, zenanswer"
 
 
 class CleanCommand(clean):
