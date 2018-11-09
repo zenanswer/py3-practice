@@ -12,10 +12,11 @@
 from py3practice.util import comm
 
 
-def sub():
+def sub_func():
     comm.comm()
     print('I\'m sub')
+    return 0
 
 
 if __name__ == '__main__':
-    sub()
+    sub_func()
