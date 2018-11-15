@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 
 
-from distutils.command.clean import clean
 from setuptools import setup, find_packages
+from distutils.command.clean import clean
+from sphinx.setup_command import BuildDoc
 import unittest
 
 """
@@ -13,12 +14,22 @@ Release package tool for py3practice
 __copyright__ = "Copyright 2018, zenanswer"
 
 
+name = "py3practice"
+version = "1.0.0"
+release = "dummy"
+
+
 class CleanCommand(clean):
 
     description = 'Custom clean command to tidy up the project root.'
     user_options = []
 
-    CLEAN_FILES = './build ./dist ./*.pyc ./*.tgz ./*.egg-info'.split(' ')
+    CLEAN_FILES = [
+        'build',
+        'dist',
+        '*.egg-info',
+        'docs/_build'
+        ]
 
     def initialize_options(self):
         pass
@@ -45,8 +56,8 @@ def get_test_suite():
 
 
 setup(
-    name="py3practice",
-    version="1.0",
+    name=name,
+    version=version,
     keywords=["python3", "practice"],
     description="practice for python3",
     long_description="This is demo REPO. for internal training.",
@@ -67,7 +78,10 @@ setup(
     ],
     dependency_links=[
     ],
-    cmdclass={'clean': CleanCommand},
+    cmdclass={
+        'clean': CleanCommand,
+        'build_sphinx': BuildDoc
+    },
     test_suite='setup.get_test_suite',
 
     # scripts=[],

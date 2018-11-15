@@ -29,6 +29,15 @@ Build wheel package
   $ python setup.py bdist_wheel
 
 
+Build Doc
+=========
+
+.. code-block:: text
+
+  $ python setup.py clean
+  $ python setup.py build_sphinx
+
+
 Install package
 ===============
 

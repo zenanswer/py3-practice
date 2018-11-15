@@ -12,11 +12,6 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import os
-import sys
-sys.path.insert(0, os.path.abspath('..'))
-print(sys.path)
-
 
 # -- Project information -----------------------------------------------------
 
@@ -183,7 +178,7 @@ def run_apidoc(_):
     import os
     cur_dir = os.path.abspath(os.path.dirname(__file__))
     output_path = os.path.join(cur_dir, '_build')
-    main(['-e', '-o', output_path, '../py3practice', '--force'])
+    main(['-e', '-o', output_path, 'py3practice', '--force'])
 
 
 def setup(app):
