@@ -69,8 +69,6 @@ def export_xls(content, file_name):
             style = get_style('red', 'off')
         for col_num, column in enumerate(row):
             new_sheet.write(row_num, col_num, column, style)
-    print(new_sheet.get_height())
-    print(new_sheet.get())
     excel_file.save(file_name)
 
 
