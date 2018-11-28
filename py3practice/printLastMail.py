@@ -15,7 +15,7 @@ import argparse
 import traceback
 import getpass
 import poplib
-from email.parser import Parser
+from email.parser import BytesParser
 from email.header import decode_header
 from email.utils import parseaddr
 import time
@@ -28,12 +28,14 @@ def retrieve_last_mail(address, username, password):
     print(pop3_handler.pass_(password))
     resp, mails, _ = pop3_handler.list()
     print(resp)
-    count = len(mails)
+    count = len(mails) - 1
     print('Mial count: %d' % count)
     resp, lines, _ = pop3_handler.retr(count)
     print(resp)
-    msg_content = b'\r\n'.join(lines).decode('utf-8')
-    message = Parser().parsestr(msg_content)
+    msg_content = b'\r\n'.join(lines)
+    message = BytesParser().parsebytes(msg_content)
+    # msg_content = b'\r\n'.join(lines).decode('utf-8')
+    # message = Parser().parsestr(msg_content)
     pop3_handler.quit()
     return message
 
@@ -92,7 +94,8 @@ def process_mail_body(message):
                 file_prefix + '_' + time.strftime("%H_%M_%S") + '.' + file_ext)
             with open(file_path, 'wb') as image_file:
                 image_file.write(message.get_payload(decode=True))
-            print('Save [%s] as [%s].' % (content_type, file_path))
+            print('Save [%s] [%s] as [%s].' %
+                (message.get('Content-ID'), content_type, file_path))
 
         def save_attachment(message):
             file_path = os.path.join(
@@ -100,7 +103,8 @@ def process_mail_body(message):
                 message.get_filename())
             with open(file_path, 'wb') as image_file:
                 image_file.write(message.get_payload(decode=True))
-            print('Save [%s] as [%s].' % (message.get_filename(), file_path))
+            print('Save [%s] [%s] as [%s].' %
+                (message.get('Content-ID'), message.get_filename(), file_path))
 
         content_type = message.get_content_type()
         if content_type in ['text/plain']:
