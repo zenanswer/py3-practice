@@ -1,0 +1,164 @@
+02/12 11:50:07,140 : CASE 1_XProject-c232 [started]  dutVersion="6.0.1"  catsVersion="6.0.0"
+02/12 11:50:07,341 : PYTHONFUNC init [started] line: 123 
+
+02/12 11:50:07,342 : PYTHONFUNC init [finished] result=SUCCESS duration=0.001sec
+02/12 11:50:07,349 : PYTHONFUNC control_robotic [started] line: 130 
+                        0 = press
+02/12 11:50:07,352 : ACTION ExecLocalCommand [started] line: 58 
+                        returnValue = 0
+                        command = D:\XProject\XProject\cienetpy\venv\Scripts\python -m XProject.roboticarm.robaction_py3 -a press -c C:\cats-node\home\config\rc_markbutton.ini
+                        timeout = 15000
+02/12 11:50:08,362 : ACTION ExecLocalCommand [finished] result=SUCCESS duration=1.009sec returnValue=0
+02/12 11:50:08,869 : SLEEP ExecLocalCommand result=SUCCESS duration=0.5sec
+02/12 11:50:08,870 : PYTHONFUNC control_robotic [finished] result=SUCCESS duration=1.521sec
+02/12 11:50:08,874 : ACTION StartRecordAudio [started] line: 131 
+                        defaultTime = 5000
+                        sampleRate = 16000.0
+02/12 11:50:08,875 : ACTION StartRecordAudio [finished] result=SUCCESS duration=0.001sec
+02/12 11:50:14,377 : SLEEP StartRecordAudio result=SUCCESS duration=5.5sec
+02/12 11:50:39,379 : PYTHONFUNC get_log [started] line: 133 
+                        0 = C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\XProject_log
+                        1 = XXXXXX
+02/12 11:50:39,382 : ACTION Comments [started] line: 64 
+                        comments = adb -s XXXXXX  ls /sdcard/Android/data/com.XProject.n2/logs | findstr log.txt.0001
+02/12 11:50:39,383 : ACTION Comments [finished] result=SUCCESS duration=0.001sec
+02/12 11:50:39,886 : SLEEP Comments result=SUCCESS duration=0.5sec
+02/12 11:50:40,086 : ACTION Comments [started] line: 68 
+                        comments = adb -s XXXXXX  pull /sdcard/Android/data/com.XProject.n2/logs/log.txt.0001 C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\XProject_log
+02/12 11:50:40,087 : ACTION Comments [finished] result=SUCCESS duration=0.001sec
+02/12 11:50:40,589 : SLEEP Comments result=SUCCESS duration=0.5sec
+02/12 11:50:44,415 : ACTION Comments [started] line: 72 
+                        comments = adb -s XXXXXX  pull /sdcard/Android/data/com.XProject.n2/logs/log.txt C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\XProject_log
+02/12 11:50:44,415 : ACTION Comments [finished] result=SUCCESS duration=0.001sec
+02/12 11:50:44,917 : SLEEP Comments result=SUCCESS duration=0.5sec
+02/12 11:50:56,071 : PYTHONFUNC get_log [finished] result=SUCCESS duration=16.691sec
+02/12 11:50:56,072 : PYTHONFUNC find_event [started] line: 134 
+                        0 = C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\XProject_log
+02/12 11:50:56,074 : PYTHONFUNC exec_cmd [started] line: 83 
+                        0 = findstr \"mark\" C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\XProject_log\* | findstr -v AccelEventDetector  > C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\XProject_log\find_result.txt
+02/12 11:50:56,077 : ACTION Comments [started] line: 40 
+                        comments = findstr \"mark\" C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\XProject_log\* | findstr -v AccelEventDetector  > C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\XProject_log\find_result.txt
+02/12 11:50:56,078 : ACTION Comments [finished] result=SUCCESS duration=0.001sec
+02/12 11:50:56,579 : SLEEP Comments result=SUCCESS duration=0.5sec
+02/12 11:50:56,637 : ACTION Comments [started] line: 42 
+                        comments = 
+02/12 11:50:56,638 : ACTION Comments [finished] result=SUCCESS duration=0.001sec
+02/12 11:50:57,139 : SLEEP Comments result=SUCCESS duration=0.5sec
+02/12 11:50:57,142 : ACTION Comments [started] line: 43 
+                        comments = 
+02/12 11:50:57,143 : ACTION Comments [finished] result=SUCCESS duration=0.001sec
+02/12 11:50:57,646 : SLEEP Comments result=SUCCESS duration=0.5sec
+02/12 11:50:57,648 : ACTION Comments [started] line: 44 
+                        comments = 0
+02/12 11:50:57,649 : ACTION Comments [finished] result=SUCCESS duration=0.001sec
+02/12 11:50:58,150 : SLEEP Comments result=SUCCESS duration=0.5sec
+02/12 11:50:58,151 : PYTHONFUNC exec_cmd [finished] result=SUCCESS duration=2.077sec
+02/12 11:50:58,151 : PYTHONFUNC find_event [finished] result=SUCCESS duration=2.079sec
+02/12 11:50:58,153 : PYTHONFUNC verify_event [started] line: 136 
+                        0 = XXXXXX
+                        1 = 1.549943407348E9
+                        2 = C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232
+                        3 = C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\XProject_log\find_result.txt
+02/12 11:50:58,154 : PYTHONFUNC exec_cmd [started] line: 93 
+                        0 = D:\XProject\XProject\cienetpy\venv\Scripts\python -m XProject.analyzeLog.analyzeLog VerifyEvent C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232 XXXXXX 1549943407.35 C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\XProject_log\find_result.txt
+02/12 11:50:58,156 : ACTION Comments [started] line: 40 
+                        comments = D:\XProject\XProject\cienetpy\venv\Scripts\python -m XProject.analyzeLog.analyzeLog VerifyEvent C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232 XXXXXX 1549943407.35 C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\XProject_log\find_result.txt
+02/12 11:50:58,157 : ACTION Comments [finished] result=SUCCESS duration=0.001sec
+02/12 11:50:58,658 : SLEEP Comments result=SUCCESS duration=0.5sec
+02/12 11:50:58,742 : ACTION Comments [started] line: 42 
+                        comments = start in main,analyze VerifyEvent
+======== Start to verify event =======
+Event started time: 2019-02-12 11:50:07.530
+======== End to verify event =======
+02/12 11:50:58,743 : ACTION Comments [finished] result=SUCCESS duration=0.000sec
+02/12 11:50:59,244 : SLEEP Comments result=SUCCESS duration=0.5sec
+02/12 11:50:59,247 : ACTION Comments [started] line: 43 
+                        comments = 
+02/12 11:50:59,247 : ACTION Comments [finished] result=SUCCESS duration=0.001sec
+02/12 11:50:59,748 : SLEEP Comments result=SUCCESS duration=0.5sec
+02/12 11:50:59,750 : ACTION Comments [started] line: 44 
+                        comments = 0
+02/12 11:50:59,751 : ACTION Comments [finished] result=SUCCESS duration=0.001sec
+02/12 11:51:00,252 : SLEEP Comments result=SUCCESS duration=0.5sec
+02/12 11:51:00,253 : PYTHONFUNC exec_cmd [finished] result=SUCCESS duration=2.099sec
+02/12 11:51:00,253 : PYTHONFUNC verify_event [finished] result=SUCCESS duration=2.101sec
+02/12 11:51:00,254 : PYTHONFUNC audio_predictor [started] line: 137 
+                        0 = C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232
+02/12 11:51:00,256 : PYTHONFUNC exec_cmd [started] line: 111 
+                        0 = D:\XProject\XProject\cienetpy\venv\Scripts\python -m XProject.audiopredictor.audio_predictor -d C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232 -f lastRecAudioTmp.wav -t C:\cats-node\home\config\trainmodel -c C:\cats-node\home\config\audiopredictconfig.yaml
+02/12 11:51:00,258 : ACTION Comments [started] line: 40 
+                        comments = D:\XProject\XProject\cienetpy\venv\Scripts\python -m XProject.audiopredictor.audio_predictor -d C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232 -f lastRecAudioTmp.wav -t C:\cats-node\home\config\trainmodel -c C:\cats-node\home\config\audiopredictconfig.yaml
+02/12 11:51:00,258 : ACTION Comments [finished] result=SUCCESS duration=0.001sec
+02/12 11:51:00,760 : SLEEP Comments result=SUCCESS duration=0.5sec
+02/12 11:51:38,029 : ACTION Comments [started] line: 42 
+                        comments = Read config file:C:\cats-node\home\config\audiopredictconfig.yaml
+[Config]--[source_base:], [target_base:], [required_volume:-27], [noise_threshold_value_1:0.1],[noise_threshold_value_2,25][required_length:1733],[frame_rate:44100],[batch_size:100],[train_steps:2500],[mode:tf],[audio_type:.wav]
+Running into pre_handle_audio
+get_or_create_folder:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\input
+get_or_create_folder:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\input\someVol
+get_or_create_folder:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\output
+Running into pre_handle...
+Start to adjust volumes....
+['someVol']
+clean_or_create_folder:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\output\volume
+Try to scan word_folders:['someVol']
+['someVol.wav']
+clean_or_create_folder:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\output\volume\someVol
+Start to uniform volume for:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\input\someVol\someVol.wav
+    [Detail of audio]--[loudness:-17],[duration:14],[frame_rate:16000],[frame_width:2][rms:4557][max_bDFS:0]
+    Diff for volume:-9.864581872454618
+    Try to export to file:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\output\volume\someVol\someVol.wav
+End
+Start to remove noise....
+['someVol']
+clean_or_create_folder:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\output\trim
+Try to scan word_folders:['someVol']
+['someVol.wav']
+clean_or_create_folder:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\output\trim\someVol
+Try to handle:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\output\volume\someVol\someVol.wav
+    Change:4.459954648526077 to 3.7401360544217686
+    Try to export to file:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\output\trim\someVol\someVol.wav
+End
+Start to unify length....
+['someVol']
+clean_or_create_folder:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\output\unified
+Try to scan word_folders:['someVol']
+['someVol.wav']
+clean_or_create_folder:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\output\unified\someVol
+Try to trim:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\output\trim\someVol\someVol.wav
+while times 7
+    Change:3740.1360544217687,2.0881858400000004
+    Try to export to file:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\output\unified\someVol\someVol.wav
+End
+After adjust volume, trim, length, start to prepare for feature extract...
+Start to extract feature....
+['someVol']
+clean_or_create_folder:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\output\feature
+Try to scan word_folders:['someVol']
+['someVol.wav']
+clean_or_create_folder:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\output\feature\someVol
+Try to handle:C:\cats-node\home\logs\local_20190212115005\XXXXXX\1_XProject-c232\output\unified\someVol\someVol.wav
+End
+Running into df_audio_predict:C:\cats-node\home\config\trainmodel
+Running into df_audio_predict
+TensorFlow is used for the prediction...
+Prediction result: class_id=3, spec=audio3, probability:93.0178165435791
+Prediction is "audio3" (93.0%), expected "audio3"
+02/12 11:51:38,030 : ACTION Comments [finished] result=SUCCESS duration=0.001sec
+02/12 11:51:38,531 : SLEEP Comments result=SUCCESS duration=0.5sec
+02/12 11:51:38,535 : ACTION Comments [started] line: 43 
+                        comments = 2019-02-12 11:51:32.092235: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+02/12 11:51:38,536 : ACTION Comments [finished] result=SUCCESS duration=0.001sec
+02/12 11:51:39,039 : SLEEP Comments result=SUCCESS duration=0.5sec
+02/12 11:51:39,042 : ACTION Comments [started] line: 44 
+                        comments = 61
+02/12 11:51:39,043 : ACTION Comments [finished] result=SUCCESS duration=0.001sec
+02/12 11:51:39,546 : SLEEP Comments result=SUCCESS duration=0.5sec
+02/12 11:51:39,546 : PYTHONFUNC exec_cmd [finished] result=SUCCESS duration=39.291sec
+02/12 11:51:39,547 : PYTHONFUNC audio_predictor [finished] result=SUCCESS duration=39.294sec
+02/12 11:51:39,550 : PYTHONFUNC clean_up [started] line: 0 
+
+02/12 11:51:39,551 : PYTHONFUNC clean_up [finished] result=SUCCESS duration=0.001sec
+02/12 11:51:44,154 : LOGCAT logcat_post_handle result=SUCCESS duration=2.511sec
+02/12 11:51:44,155 : LOGCAT interpreter_wait_for_logcat_complete result=SUCCESS duration=3.973sec
+02/12 11:51:44,158 : CASE 1_XProject-c232 [finished] result=FAILED duration=97.020sec errorCode=5300 errorMessage=Script message: [Failed:]Failed to predict the audio.

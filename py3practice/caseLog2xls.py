@@ -42,7 +42,7 @@ def formated_line(raw_line_generator):
         res = re.search(r'(?P<time>\d{2}/\d{2} \d{2}:\d{2}:\d{2},\d{3}) : (?P<type>\S*) (?P<name>\S*) \[(?P<state>\S*)\].*', line)
         if res is None or res.groupdict()['name'] is '':
             continue
-        if res.groupdict()['type'] not in ['OPERATION', 'ACTION']:
+        if res.groupdict()['type'] not in ['OPERATION', 'ACTION', 'PYTHONFUNC']:
             continue
         infos = res.groupdict()
         yield (infos['time'], infos['type'], infos['name'], infos['state'])
