@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "args": ["-i", "other/case_log.txt", "-o", "x.xls"],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: caseLog2xls",
+            "type": "python",
+            "request": "launch",
+            "module": "py3practice.caseLog2xls",
+            "args": ["-i", "other/case_log.txt", "-o", "x.xls"],
+            "console": "integratedTerminal"
+        }
+    ]
+}
