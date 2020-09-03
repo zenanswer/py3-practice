@@ -43,3 +43,8 @@ def get_platform():
     # import platform
     # platform.platform()
     return sys.platform
+
+
+if __name__ == '__main__':
+    print("Interpreter Version: {}".format(get_interpreter_version()))
+    print(f"Platform: {get_platform()}")

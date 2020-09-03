@@ -39,10 +39,13 @@ def formated_line(raw_line_generator):
     for line in raw_line_generator:
         # print('RAW_LINE[%s]' % repr(line))
         # http://www.runoob.com/python/python-reg-expressions.html
-        res = re.search(r'(?P<time>\d{2}/\d{2} \d{2}:\d{2}:\d{2},\d{3}) : (?P<type>\S*) (?P<name>\S*) \[(?P<state>\S*)\].*', line)
+        res = re.search(
+            r'(?P<time>\d{2}/\d{2} \d{2}:\d{2}:\d{2},\d{3})'
+            r' : (?P<type>\S*) (?P<name>\S*) \[(?P<state>\S*)\].*', line)
         if res is None or res.groupdict()['name'] is '':
             continue
-        if res.groupdict()['type'] not in ['OPERATION', 'ACTION', 'PYTHONFUNC']:
+        if res.groupdict()['type'] \
+                not in['OPERATION', 'ACTION', 'PYTHONFUNC']:
             continue
         infos = res.groupdict()
         yield (infos['time'], infos['type'], infos['name'], infos['state'])
@@ -69,6 +72,7 @@ def get_duration(formated_line_generator):
                 end_time = datetime.datetime.strptime(
                     op_time + '000', r'%m/%d %H:%M:%S,%f')
                 duration = end_time - start_time
+                # print(op_name, duration.total_seconds())
                 yield (last_line[0], op_time, op_type, op_name,
                        duration.total_seconds())
             else:

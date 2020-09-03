@@ -21,9 +21,13 @@ from email.utils import parseaddr
 import time
 
 
-def retrieve_last_mail(address, username, password):
+def retrieve_last_mail(address, port, tls, username, password):
     print('Try to connect to pop3 server.')
-    pop3_handler = poplib.POP3(address)
+    pop3_handler = None
+    if tls:
+        pop3_handler = poplib.POP3_SSL(address, port=port)
+    else:
+        pop3_handler = poplib.POP3(address, port=port)
     print(pop3_handler.user(username))
     print(pop3_handler.pass_(password))
     resp, mails, _ = pop3_handler.list()
@@ -94,8 +98,10 @@ def process_mail_body(message):
                 file_prefix + '_' + time.strftime("%H_%M_%S") + '.' + file_ext)
             with open(file_path, 'wb') as image_file:
                 image_file.write(message.get_payload(decode=True))
-            print('Save [%s] [%s] as [%s].' %
-                (message.get('Content-ID'), content_type, file_path))
+            print(
+                f'Save [{message.get("Content-ID")}] '
+                f'[{content_type}] '
+                f'as [{file_path}].')
 
         def save_attachment(message):
             file_path = os.path.join(
@@ -103,8 +109,10 @@ def process_mail_body(message):
                 message.get_filename())
             with open(file_path, 'wb') as image_file:
                 image_file.write(message.get_payload(decode=True))
-            print('Save [%s] [%s] as [%s].' %
-                (message.get('Content-ID'), message.get_filename(), file_path))
+            print(
+                f'Save [{message.get("Content-ID")}] '
+                f'[{message.get_filename()}] '
+                f'as [{file_path}].')
 
         content_type = message.get_content_type()
         if content_type in ['text/plain']:
@@ -130,9 +138,17 @@ def process_argv():
     parser.add_argument('--pop3address', '-a',
                         help='The address of the pop3 server.',
                         required=True)
+    parser.add_argument('--port', '-p',
+                        type=int,
+                        default=110,
+                        help="The port number for pop3")
     parser.add_argument('--username', '-u',
                         help='The user name of this email account',
                         required=True)
+    parser.add_argument('--no-tls', dest='tls',
+                        action='store_false',
+                        default=True,
+                        help='Disable TLS/SSl')
     # parser.add_argument('--password', '-p',
     #                     help='The pass word of this email account',
     #                     required=True)
@@ -144,7 +160,12 @@ def process_argv():
 if __name__ == '__main__':
     try:
         arg, password = process_argv()
-        message = retrieve_last_mail(arg.pop3address, arg.username, password)
+        message = retrieve_last_mail(
+            arg.pop3address,
+            arg.port,
+            arg.tls,
+            arg.username,
+            password)
         process_email(message)
     except Exception as exp:
         print(exp)
