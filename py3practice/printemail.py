@@ -3,7 +3,7 @@
 
 """
     py3practice.printemail
-    ~~~~~~~~~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~~~~~~~~
     Parser a email file.
 
     :copyright: © 2018 by zenanswer.

@@ -3,7 +3,7 @@
 
 """
     py3practice.httprequest
-    ~~~~~~~~~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~~~~~~~~~
     Send some httprequest for demo
 
     :copyright: © 2018 by zenanswer.

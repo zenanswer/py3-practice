@@ -3,7 +3,7 @@
 
 """
     py3practice.caseLog2xls
-    ~~~~~~~~~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~~~~~~~~~
     Load case_log file and converting data into a xls file.
 
     :copyright: © 2018 by zenanswer.

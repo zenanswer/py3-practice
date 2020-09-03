@@ -3,7 +3,7 @@
 
 """
     py3practice.printLastMail
-    ~~~~~~~~~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~~~~~~~~~~~
     Print the last email in the InBox.
 
     :copyright: © 2018 by zenanswer.
